@@ -4,3 +4,5 @@
 *.pyc
 /venv/
 .idea
+/data/*
+!/data/README.md
