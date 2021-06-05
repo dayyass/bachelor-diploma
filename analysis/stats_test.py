@@ -3,6 +3,7 @@ from typing import Tuple, Union
 import numpy as np
 import pandas as pd
 import scipy.stats as sts
+from scipy.spatial.distance import mahalanobis
 from utils import get_covariance_matrix
 
 
@@ -189,3 +190,38 @@ def hotelling_t2_2samp_test(
     p_value = 1 - sts.f.cdf(f_statistic, dfn=m, dfd=n_x + n_y - m - 1)
 
     return t2_statistic, f_statistic, p_value
+
+
+def mahalanobis_test(
+    u: Union[np.ndarray, pd.Series],
+    v: Union[np.ndarray, pd.Series],
+    VI: Union[np.ndarray, pd.DataFrame],
+    n_u: int,
+    n_v: int,
+) -> Tuple[float, float, float, float]:
+    """
+    Test u == v.
+    H0: u == v.
+    H1: u != v.
+
+    :param Union[np.ndarray, pd.Series] u: u vector.
+    :param Union[np.ndarray, pd.Series] v: v vector.
+    :param Union[np.ndarray, pd.DataFrame] VI: the inverse of the covariance matrix.
+    :param int n_u: number of samples in u.
+    :param int n_v: number of samples in v.
+    :return: distance, t2_statistic, f_statistic, p_value.
+    :rtype: Tuple[float, float, float, float]
+    """
+
+    assert u.ndim == 1, "u should be matrix."
+    assert v.ndim == 1, "v should be matrix."
+    assert VI.ndim == 2, "VI should be matrix."
+
+    m = VI.shape[0]
+
+    distance = mahalanobis(u=u, v=v, VI=VI)
+    t2_statistic = n_u * n_v / (n_u + n_v) * distance
+    f_statistic = (n_u + n_v - m - 1) / (n_u + n_v - 2) * t2_statistic
+    p_value = 1 - sts.f.cdf(f_statistic, dfn=m, dfd=n_u + n_v - m - 1)
+
+    return distance, t2_statistic, f_statistic, p_value
