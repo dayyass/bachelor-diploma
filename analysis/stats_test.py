@@ -1,7 +1,9 @@
-from typing import Tuple
+from typing import Tuple, Union
 
 import numpy as np
+import pandas as pd
 import scipy.stats as sts
+from utils import get_covariance_matrix
 
 
 def matthews_significance_test(
@@ -116,3 +118,74 @@ def kendall_significance_test(
         )
 
     return z_statistic, p_value
+
+
+def hotelling_t2_1samp_test(
+    X: Union[np.ndarray, pd.DataFrame],
+    mu: Union[np.ndarray, pd.Series],
+) -> Tuple[float, float, float]:
+    """
+    Test if X.mean(axis=0) == mu.
+    H0: X.mean(axis=0) == mu
+    H1: X.mean(axis=0) != mu
+
+    :param Union[np.ndarray, pd.DataFrame] X: data matrix.
+    :param Union[np.ndarray, pd.Series] mu: hypothesis mean.
+    :return: t2_statistic, f_statistic, p_value.
+    :rtype: Tuple[float, float, float]
+    """
+
+    assert X.ndim == 2, "X should be matrix."
+    assert mu.ndim == 1, "mu should be vector."
+
+    n, m = X.shape
+
+    assert m == len(mu), "mu length should be equal to number columns of X."
+
+    x = X.mean(axis=0) - mu
+    cov_X_mean = get_covariance_matrix(X) / n
+    cov_X_mean_inv = np.linalg.inv(cov_X_mean)
+
+    t2_statistic = x @ cov_X_mean_inv @ x
+    f_statistic = (n - m) / (m * (n - 1)) * t2_statistic
+    p_value = 1 - sts.f.cdf(f_statistic, dfn=m, dfd=n - m)
+
+    return t2_statistic, f_statistic, p_value
+
+
+def hotelling_t2_2samp_test(
+    X: Union[np.ndarray, pd.DataFrame],
+    Y: Union[np.ndarray, pd.DataFrame],
+) -> Tuple[float, float, float]:
+    """
+    Test if X.mean(axis=0) == Y.mean(axis=0).
+    H0: X.mean(axis=0) == Y.mean(axis=0)
+    H1: X.mean(axis=0) != Y.mean(axis=0)
+
+    :param Union[np.ndarray, pd.DataFrame] X: data_1 matrix.
+    :param Union[np.ndarray, pd.Series] Y: data_2 matrix.
+    :return: t2_statistic, f_statistic, p_value.
+    :rtype: Tuple[float, float, float]
+    """
+
+    assert X.ndim == 2, "X should be matrix."
+    assert Y.ndim == 2, "Y should be matrix."
+
+    n_x, m_x = X.shape
+    n_y, m_y = Y.shape
+
+    assert m_x == m_y, "X and Y should have equal number of columns."
+    m = m_x
+
+    x = X.mean(axis=0) - Y.mean(axis=0)
+
+    cov_X = get_covariance_matrix(X)
+    cov_Y = get_covariance_matrix(Y)
+    cov_mean = ((n_x - 1) * cov_X + (n_y - 1) * cov_Y) / (n_x + n_y - 2)
+    cov_mean_inv = np.linalg.inv(cov_mean)
+
+    t2_statistic = n_x * n_y / (n_x + n_y) * (x @ cov_mean_inv @ x)
+    f_statistic = (n_x + n_y - m - 1) / (m * (n_x + n_y - 2)) * t2_statistic
+    p_value = 1 - sts.f.cdf(f_statistic, dfn=m, dfd=n_x + n_y - m - 1)
+
+    return t2_statistic, f_statistic, p_value
