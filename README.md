@@ -10,6 +10,7 @@ Order of viewing jupyter notebooks:
 1. [*columns_description.ipynb*](analysis/columns_description.ipynb)
 1. [*group_features.ipynb*](analysis/group_features.ipynb)
 1. [*binary_features.ipynb*](analysis/binary_features.ipynb)
+1. [*categorical_features.ipynb*](analysis/categorical_features.ipynb)
 1. [*numerical_features.ipynb*](analysis/numerical_features.ipynb)
 
 ### Courseworks
