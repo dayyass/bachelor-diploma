@@ -11,3 +11,6 @@ Order of viewing jupyter notebooks:
 1. *group_features.ipynb*
 1. *binary_features.ipynb*
 1. *numerical_features.ipynb*
+
+### Courseworks
+This repository also contains all [courseworks](./courseworks).
