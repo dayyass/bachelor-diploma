@@ -6,3 +6,4 @@ Order of viewing jupyter notebooks:
 1. [*binary_features.ipynb*](binary_features.ipynb)
 1. [*categorical_features.ipynb*](categorical_features.ipynb)
 1. [*numerical_features.ipynb*](numerical_features.ipynb)
+1. [*modeling.ipynb*](modeling.ipynb)
