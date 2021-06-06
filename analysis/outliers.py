@@ -2,7 +2,7 @@ from typing import Tuple
 
 import numpy as np
 import pandas as pd
-from stats_test import mahalanobis_test
+from stats_tests import mahalanobis_test
 from tqdm import tqdm
 from utils import get_covariance_matrix
 
