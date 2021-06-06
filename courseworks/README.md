@@ -10,3 +10,4 @@ This folder contains all courseworks.
 
 **Third year**:
 - [*"Optimal stock portfolio construction"*](./3_risk_theory) (discipline: *"Risk theory"*)
+- [*"Modeling and forecasting the stock price of 'The Coca-Cola Company' considering the risk of increased volatility"*](./3_econometrics) (discipline: *"Econometrics"*)
