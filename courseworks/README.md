@@ -11,4 +11,5 @@ This folder contains all courseworks.
 **Third year**:
 - [*"Modeling and forecasting the stock price of 'The Coca-Cola Company' considering the risk of increased volatility"*](./3_econometrics) (discipline: *"Econometrics"*)
 - [*"Optimal stock portfolio construction"*](./3_risk_theory) (discipline: *"Risk theory"*)
-- Practice [*"Operations research applied problems"*](./3_operations_research_models) (discipline: *"Operations research"*)
+- Practice [*"Obtaining professional skills and professional experience"*](3_practice_econometrics) (discipline: *"Econometrics"*)
+- Practice [*"Operations research applied problems"*](3_practice_operations_research_models) (discipline: *"Operations research"*)
