@@ -1,5 +1,5 @@
 ### Bachelor's Diploma
-Diploma thesis: [**"Assessment of credit organizations borrowers' default rate"**](https://github.com/dayyass/bachelor_diploma/blob/main/diploma.pdf) ([diploma](https://github.com/dayyass/bachelor_diploma/blob/main/diploma.pdf) and [presentation](https://github.com/dayyass/bachelor_diploma/blob/main/presentation.pdf)).<br>
+Diploma thesis: [**"Assessment of credit organizations borrowers' default rate"**](diploma.pdf) ([diploma](diploma.pdf) and [presentation](presentation.pdf)).<br>
 
 ### Data
 README about data [here](data/README.md).
