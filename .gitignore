@@ -6,3 +6,4 @@
 .idea
 /data/*
 !/data/README.md
+!/data/sqlite.ipynb
