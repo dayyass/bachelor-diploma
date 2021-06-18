@@ -1,22 +1,27 @@
 ### Bachelor's Diploma
-Diploma thesis: [**"Assessment of credit organizations borrowers' default rate"**](diploma.pdf) (2019).<br>
-[Diploma](diploma.pdf) and [presentation](presentation.pdf).
+Thesis: **"Assessment of credit organizations borrowers' default rate"** (2019).
+
+Links:
+- [*thesis*](thesis.pdf)
+- [*presentation*](presentation.pdf)
+- [*diploma*](diploma/diploma.pdf)
+- [*diploma supplement*](diploma/diploma_supplement.pdf)
 
 ### Data
-README about data [here](data/README.md).
+README about data [*here*](data/README.md).
 
 ### Analysis
-All the code with data analysis is stored in the folder [**"analysis"**](analysis) and consists of different jupyter notebooks.<br>
+All the code with data analysis is stored in the folder [**"analysis"**](thesis) and consists of different jupyter notebooks.<br>
 Order of viewing jupyter notebooks:
-1. [*columns_description.ipynb*](analysis/columns_description.ipynb)
-1. [*group_features.ipynb*](analysis/group_features.ipynb)
-1. [*binary_features.ipynb*](analysis/binary_features.ipynb)
-1. [*categorical_features.ipynb*](analysis/categorical_features.ipynb)
-1. [*numerical_features.ipynb*](analysis/numerical_features.ipynb)
-1. [*modeling.ipynb*](analysis/modeling.ipynb)
+1. [*columns_description.ipynb*](thesis/columns_description.ipynb)
+1. [*group_features.ipynb*](thesis/group_features.ipynb)
+1. [*binary_features.ipynb*](thesis/binary_features.ipynb)
+1. [*categorical_features.ipynb*](thesis/categorical_features.ipynb)
+1. [*numerical_features.ipynb*](thesis/numerical_features.ipynb)
+1. [*modeling.ipynb*](thesis/modeling.ipynb)
 
 ### Courseworks
-This repository also contains all [courseworks](courseworks).
+This repository also contains all [**courseworks**](courseworks).
 
 **First year** (2015-2016):
 - [*"Processing of stock data in MS Excel and MS Access"*](courseworks/1_information_technology_in_economics) (discipline: *"Information technology in the economics"*)

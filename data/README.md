@@ -5,7 +5,7 @@ Use these files:
 - [*application_train.csv*](https://www.kaggle.com/c/home-credit-default-risk/data?select=application_train.csv)
 - [*application_test.csv*](https://www.kaggle.com/c/home-credit-default-risk/data?select=application_test.csv)
 
-You can create additional files with [group_features.ipynb](../analysis/group_features.ipynb) (**used in analysis**):
+You can create additional files with [group_features.ipynb](../thesis/group_features.ipynb) (**used in analysis**):
 - *application_train_binary.csv*
 - *application_train_categorical.csv*
 - *application_train_numerical.csv*
